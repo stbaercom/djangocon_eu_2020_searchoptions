@@ -1,0 +1,47 @@
+{% extends "reviews/base.html" %}
+{% block title %}{{ method }} Search{% endblock %}
+{% block content %}
+
+    <h1>{{ method }} Search</h1>
+    <form action="/reviews/search" method="get">
+        {{ form }}
+        <input type="submit" value="Search">
+    </form>
+
+    {% if facets %}
+        <h2> Facets</h2>
+
+        <div class="facets">
+
+            {% for fname,fvals in facets.items %}
+
+                <p class="facet">
+                <h3>{{ fname }}</h3>
+
+                {% for fval,fcount in fvals.items %}
+                    <div>
+                        {{ fval }} : {{ fcount }}
+                    </div>
+
+                {% endfor %}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+
+
+    <h2> {{ num }} {{ method }} Search Results, {{ diff }} milliseconds execution time</h2>
+    {% for review in reviews %}
+        <h2>
+            <a href="{{ review.get_absolute_url }}">
+                {{ review.name }} / {{ review.review_summary }}
+            </a>
+        </h2>
+        {{ review.review_text|truncatewords:30|linebreaks }}
+    {% endfor %}
+{% endblock %}

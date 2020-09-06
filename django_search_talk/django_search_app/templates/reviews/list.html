@@ -1,0 +1,14 @@
+{% extends "reviews/base.html" %}
+{% block title %}Reviews{% endblock %}
+{% block content %}
+  <h1>Reviews</h1>
+  {% for review in reviews %}
+    <h2>
+      <a href="{{ review.get_absolute_url }}">
+        {{ review.name }} / {{ review.review_summary }}
+      </a>
+    </h2>
+    {{ review.review_text|truncatewords:30|linebreaks }}
+  {% endfor %}
+      {% include "reviews/pagination.html" with page=reviews %}
+{% endblock %}

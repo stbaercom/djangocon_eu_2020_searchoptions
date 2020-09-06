@@ -1,0 +1,12 @@
+/.DS_Store
+.DS_Store
+.idea
+/elastic_data
+/pg_data
+/elastic_log
+__pycache__
+/django_search_talk/out.json
+/django_search_talk/movies_100k.txt
+/django_search_talk/notes.txt
+/django_search_talk/movies_1m.txt
+/django_search_talk/movies_1k.txt

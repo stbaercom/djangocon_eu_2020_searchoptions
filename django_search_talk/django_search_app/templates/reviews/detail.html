@@ -1,0 +1,46 @@
+{% extends "reviews/base.html" %}
+{% block title %}{{ review.review_summary }}{% endblock %}
+{% block content %}
+    <h1>{{ review.review_summary }}</h1>
+
+    <table>
+        <thead>
+           <td>Field</td>
+            <td>Content</td>
+        </thead>
+
+        <tr>
+            <td>ProductId</td>
+            <td>{{ review.productId }}</td>
+        </tr>
+
+        <tr>
+            <td>UserId</td>
+            <td>{{ review.userId }}</td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td>{{ review.name }}</td>
+        </tr>
+
+        <tr>
+            <td>Helpfulnewss</td>
+            <td> {{ review.review_help_help }} / {{ review.review_help_total }}</td>
+        </tr>
+
+        <tr>
+            <td> Review Score</td>
+            <td> review.review_score</td>
+        </tr>
+
+        <tr>
+            <td>Review Time</td>
+            <td>{{ review.review_time }}</td>
+        </tr>
+
+    </table>
+
+    {{ review.review_text|linebreaks }}
+{% endblock %}
+
