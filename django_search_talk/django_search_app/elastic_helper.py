@@ -120,7 +120,7 @@ def multi_search(index_name, qstring):
         "query": {
             "multi_match": {
                 "query": qstring,
-                "fields": ["review_text", "review_summary"]
+                "fields": ["review_text", "review_summary^5"]
             }
         }
     }
@@ -131,7 +131,7 @@ def multi_search_facets(index_name, qstring, size):
     query = {
             "multi_match": {
                 "query": qstring,
-                "fields": ["review_text", "review_summary"]
+                "fields": ["review_text", "review_summary^5"]
             }
         }
     return inner_search(index_name, query,size=size)
@@ -141,7 +141,7 @@ def multi_search_facets_filter(index_name, qstring, qfilter={}):
     query_part = {
             "multi_match": {
                 "query": qstring,
-                "fields": ["review_text", "review_summary"]
+                "fields": ["review_text", "review_summary^5"]
             }
         }
 

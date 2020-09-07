@@ -11,10 +11,11 @@
     {% if facets %}
         <h2> Facets</h2>
 
-        <div class="facets">
+        <div style="display: flex; flex-direction: row;">
 
             {% for fname,fvals in facets.items %}
 
+                <div style="margin: 0px 5em 0px 5em;">
                 <p class="facet">
                 <h3>{{ fname }}</h3>
 
@@ -26,6 +27,7 @@
                 {% endfor %}
 
                 </p>
+                </div>
 
             {% endfor %}
 
